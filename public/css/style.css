@@ -1,0 +1,570 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+    padding: 0;
+    margin: 0;     
+}
+
+.container-sidebar{
+    display: flex;
+    min-height: 100vh;
+    margin-left: 0;
+}
+
+.sidebar{
+    background-color: #47993a;
+    width: 260px;
+    padding: 24px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    transition: all ease-in .3s;
+}
+
+.sidebar.hide {
+    width: 87px;
+    transition: all ease-out .3s;
+}
+
+.main-content{
+    background-color: #EEEEEE;
+    flex-grow: 1;
+    /* margin-right: -228.5px; */
+}
+
+.sidebar .description-header {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 16px;
+    color: #ffffff;
+    margin-left: 35px;
+}
+
+.sidebar.hide .description-header{
+    display: none;
+}
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.sidebar .header .list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 10px;
+    border-radius: 8px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.sidebar .header .list-item .icon {
+    margin-right: 12px;
+}
+
+.sidebar .header .illustration {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 10px 0 22px 0;
+    box-sizing: border-box;
+}
+
+.sidebar.hide .illustration{
+    display: none;
+}
+
+.sidebar .main .list-item .description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    display: inline-block;
+}
+
+.sidebar.hide .main .list-item .description {
+    display: none;
+}
+
+.sidebar .main .list-item .icon {
+    margin-right: 12px;
+}
+
+.sidebar .main .list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 10px;
+    border-radius: 8px;
+    /* width: 212px; */
+    box-sizing: border-box;
+    transition: all ease-in .2s;
+    text-decoration: none;
+}
+
+.sidebar .main .list-item:hover {
+    background: #FF9900;
+    transition: all ease-in .2s;
+    /* padding-left: 20px; */
+}
+
+.list-item.active {
+    background-color: #FF9900;
+}
+
+.sidebar .main .list-item.active {
+    background-color: #FF9900;
+}
+
+/* Toogle Menu */
+
+#menu-button{
+    width: 32px;
+    position: absolute;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-left: 3.5px;
+}
+
+#menu-label{
+    position: relative;
+    display: block;
+    height: 20px;
+    cursor: pointer;
+}
+
+#menu-checkbox{
+    display: none;
+}
+
+#hamburger, #menu-label:after, #menu-label:before {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #ffffff;
+}
+
+#menu-label:after, #menu-label:before{
+    content: "";
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) left;
+}
+
+#menu-label:before {
+    top: 0;
+}
+
+#menu-label:after {
+    top: 8px;
+}
+
+#hamburger {
+    top: 16px;
+}
+
+#hamburger:before{
+    content: "MENU";
+    position: absolute;
+    top: 5px;
+    right: 0;
+    left: 0;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#menu-checkbox:checked + #menu-label::before{
+    left: -39px;
+}
+
+#menu-checkbox:checked + #menu-label::after{
+    left: 39px;
+}
+
+#menu-checkbox:checked + #menu-label #hamburger::before{
+    animation: moveUpThenDown 0.8s ease 0.2s forwards,
+    shakeUp 0.8s ease 0.2s forwards,
+    shakeDown 0.2s ease 0,2s forwards;
+}
+
+@keyframes moveUpThenDown {
+    0%{
+        top: 0;
+    }
+    50%{
+        top: -27px;
+    }
+    100%{
+        top: -14px;
+    }
+}
+
+@keyframes shakeUp {
+    0% {
+        transform: rotateZ(0);
+    }
+    25% {
+        transform: rotateZ(-10deg);
+    }
+    50% {
+        transform: rotateZ(0);
+    }
+    75% {
+        transform: rotateZ(10deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes shakeDown {
+    0% {
+        transform: rotateZ(0);
+    }
+    80% {
+        transform: rotateZ(3deg);
+    }
+    90% {
+        transform: rotateZ(-3deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+/* end sidebar */
+
+/* main-content */
+/* custom-color */
+.bg-primary{
+    background-color: #0c4e68 !important;
+}
+.bg-danger{
+    background-color: #d12c24 !important;
+}
+
+.navbar-custom {
+    background-color: #fff;
+    opacity:1;
+    backdrop-filter: blur(5px);
+    color:#ffffff;
+    z-index: 99;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color:#333;
+    font-weight: 500;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color:#f5f4f4;
+    font-weight: 500;
+    margin-left:5px;
+    padding-left:15px;
+    padding-right:15px;
+    font-size: 12.5pt;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:focus .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    background-color:#ffffff;
+    backdrop-filter: blur(5px);
+    color: #080808;
+    padding-left:15px;
+    padding-right:15px;
+    border-radius:30px;
+    font-weight: 500;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+/** Background **/
+.bg-primary{
+    background-color: #0c4e68 !important;
+}
+.bg-success{
+    background-color: #47993a !important;
+}
+.bg-danger{
+    background-color: #d12c24 !important;
+}
+/** text color **/
+.text-primary{
+    color: #0c4e68 !important;
+}
+.text-success{
+    color: #47993a !important;
+}
+.text-danger{
+    color: #d12c24 !important;
+}
+/* button */
+.btn-primary{
+    background-color: #0c4e68 !important;
+    border: 0px;
+}
+.btn-primary:hover{
+    background-color: #136788 !important;
+    border: 0px;
+}
+.btn-success{
+    background-color: #47993a !important;
+    border: 0px;
+}
+
+/* .btn-outline-success{
+    color: #47993a !important;
+    outline-color:#47993a !important;
+} */
+.btn-success:hover{
+    background-color: #52b842 !important;
+    border: 0px;
+}
+.btn-danger{
+    background-color: #d12c24 !important;
+    border: 0px;
+}
+.btn-danger:hover{
+    background-color: #e23930 !important;
+    border: 0px;
+}
+
+.card-rounded{
+    border-radius:10px !important;
+    box-shadow: 1px 7px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header{
+    border-radius:8px 8px 0px 0px !important;
+    font-weight: 700 !important;
+}
+
+.card-rounded:hover{
+    border-radius:8px !important;
+    box-shadow: 2px 10px 55px rgba(0, 0, 0, 0.1);
+}
+
+.card-rounded-back{
+    border-radius:10px;
+    box-shadow: 0px 0px 15px var(--primary-color);
+}
+
+.text-produk{
+    text-decoration: none;
+    color:#333;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.text-produk:hover{
+    color:#3c73a8;
+    font-weight: bold;
+}
+
+.detail-produk{
+    font-size: 12pt;
+}
+
+.official{
+    background-color: #f1f1f1;
+    color:#333;
+}
+
+.official-content{
+    padding-top:4pc;
+    padding-left:2pc;
+    padding-right: 2pc;
+    padding-bottom: 3pc;
+    font-size: 12pt;
+}
+
+.footer{
+    margin-top:3pc;
+    background-color: #f1f1f1;
+    color:#333;
+    padding-top:4pc;
+    padding-bottom: 4pc;
+    font-size: 12pt;
+
+}
+
+.footer h4{
+    color:#333;
+    font-weight: bold;
+
+}
+
+.text-terhubung{
+    color:#333;
+    font-size:20pt;
+    padding-right:10px;
+    padding-top:5px;
+}
+
+.copyright{
+    background-color: #e7e7e7;
+    color:#333;
+    padding-top:15px;
+    padding-bottom:10px;
+    font-weight: bold;
+}
+
+#gambar_slider{
+    height:450px !important;
+    object-fit: cover;
+}
+
+.status-box {
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-top: 3px;
+    margin-left: 1px;
+    margin-right: 0px;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+
+}
+
+.status-box-owner {
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-top: 3px;
+    margin-left: 1px;
+    margin-right: 0px;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+
+}
+
+.container-penjualan {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item-penjualan {
+    flex-grow: 1;
+    flex-basis: 200;
+}
+
+.card-kasir-transparent {
+    background-color: rgba(255, 255, 255, 0.5); 
+    /* border: none;  */
+}
+
+/* Tablet */
+@media only screen and (min-width: 671px) and (max-width: 960px) {
+    
+    .sidebar {
+        width: 200px; /* Ubah lebar sidebar untuk tablet */
+        padding: 16px; /* Ubah padding agar lebih ramping */
+    }
+
+    .sidebar.hide .description-header {
+        display: block; /* Tampilkan judul sidebar */
+    }
+    #gambar_slider{
+        height:350px !important;
+        object-fit: cover;
+    }
+}
+
+
+/* Mobile */
+@media only screen and (max-width: 670px) {
+    .sidebar {
+        width: 100%; /* Sidebar akan memenuhi lebar layar */
+        padding: 16px; /* Atur padding agar lebih ramping */
+        position: fixed; /* Sidebar tetap di posisi atas */
+        top: 0; /* Sidebar di bagian atas */
+        left: 0;
+        z-index: 999; /* Atur z-index agar sidebar tumpang tindih di atas konten lain */
+        overflow-y: auto; /* Tambahkan scrollbar jika konten terlalu panjang */
+        background-color: #47993a; /* Atur warna latar belakang */
+        transition: width 0.3s ease-in-out; /* Animasi perubahan lebar */
+    }
+
+    .sidebar.hide {
+        width: 0; /* Sembunyikan sidebar ketika tombol menu ditekan */
+    }
+
+    .main-content {
+        margin-left: 0; /* Geser konten utama ke kanan saat sidebar tertutup */
+    }
+
+    .sidebar .header .illustration {
+        display: none; /* Sembunyikan ilustrasi pada sidebar di layar kecil */
+    }
+
+    .sidebar .main .list-item .description {
+        display: none; /* Sembunyikan deskripsi item di layar kecil */
+    }
+
+    .sidebar .main .list-item {
+        padding: 12px; /* Atur padding agar lebih lega di layar kecil */
+    }
+
+    .sidebar .main .list-item .icon {
+        margin-right: 0; /* Hilangkan margin antara ikon dan teks pada layar kecil */
+    }
+
+    .sidebar .header .list-item .description {
+        text-align: left; /* Posisi teks deskripsi di sidebar kembali ke kiri */
+    }
+    #gambar_slider{
+        height:250px !important;
+        object-fit: cover;
+    }
+}
+
+.out-of-stock {
+    pointer-events: none; /* Menonaktifkan klik /
+    opacity: 0.5; / Membuat produk terlihat pudar */
+    position: relative;
+}
+
+.out-of-stock-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pagination-links .page-item .page-link {
+    color: white; 
+    background-color: green;
+    border-color: green; 
+}
+
+.pagination-links .page-item.active .page-link {
+    color: white;
+    background-color: darkgreen; 
+    border-color: darkgreen;
+}
+
+.pagination-links .page-item .page-link:hover {
+    color: white;
+    background-color: limegreen; 
+    border-color: limegreen;
+}

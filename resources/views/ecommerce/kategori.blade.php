@@ -1,0 +1,19 @@
+@extends('layouts.frontend_ecommerce')
+@section('content')
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-15 mx-auto">
+            <!--product -->
+            <div class="product">
+                <h4 class="mb-4"><b>{{ $title }}</b></h4>
+                @include('ecommerce.produk_list')
+                <br>
+                {{ $produk->links() }}
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('javascript')
+
+@endsection

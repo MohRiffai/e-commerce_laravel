@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nama-toko{
+    display: flex;
+    justify-content: flex-end;
+}
+.container {
+    padding: 20px; 
+}
+.table-container {
+    width: 100%; 
+    text-align: start; 
+}
+.table-striped tbody tr td {
+    text-align: right; 
+}
+.table-striped tbody tr td:first-child {
+    text-align: left; 
+}
+.info-table {
+    width: auto;
+    margin-left: 20px;
+}
+.lunas{
+    margin-left: 725px;
+}
+.top {
+    background-color: #ffffff; 
+    padding: 10px 0; 
+    z-index: 1000;
+}
+
+.container-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+}
+
+@media print {
+    @page {
+        size: landscape;
+    }
+
+    #printButton {
+        display: none; /* Tombol tidak akan dicetak */
+    }
+
+    #backButton {
+        display: none; /* Tombol tidak akan dicetak */
+    }
+
+    .hide-on-print {
+        display: none;
+    }
+}
